@@ -1,0 +1,19 @@
+<style>
+.contain {display: flex;align-items: center;justify-content: center;height: 130px;}
+.pink {color: #E7C3D7;}
+.heart {font-size: 110px;transition: all 1s ease-in-out;-webkit-transition: all 1s ease-in-out;}
+.heart.beat {font-size: 130px;}
+</style>
+
+<div class="contain">
+  <span class="heart pink" id="heart">&hearts;</span>
+</div>
+
+<script type="text/javascript">
+var heart = document.getElementById('heart'),
+  inBeat = function(el) {el.classList.remove('beat')},
+  outBeat = function(el) {el.classList.add('beat')},
+  beat = function() {this.classList.value.indexOf('beat') > -1 ? inBeat(this) : outBeat(this)}
+heart.addEventListener("transitionend", beat, true);
+window.onload = function() {outBeat(heart)};
+</script>
